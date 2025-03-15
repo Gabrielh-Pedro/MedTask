@@ -117,15 +117,14 @@ const Footer = () => {
       <LeftSection>
         <Logo src="/logo.png" alt="Logo" />
         <SocialIcons>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
-          <a href="https://wa.me/XXXXXXXXXX" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
+          <a href="https://www.instagram.com/grupomedtask/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://www.youtube.com/@grupomedtask" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+          <a href="https://wa.me/5511914297094" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
         </SocialIcons>
         <Links>
           <Link to="/politica-de-privacidade">Política de Privacidade</Link>
           <span>|</span>
-          <Link to="/termos-de-uso">Termos de Uso</Link>
+          <Link to="/lgpd">Termos de Uso</Link>
         </Links>
       </LeftSection>
 

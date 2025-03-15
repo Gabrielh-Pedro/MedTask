@@ -413,7 +413,7 @@ const Professores = () => {
                     <button className="superButton">EU QUERO CONHECER!</button>
                 </LeftCont1>
                 <RightCont1>
-                    <ImageStyled src="professores.webp" alt="Marcus" />
+                    <ImageStyled src="professores.png" alt="Marcus" />
                 </RightCont1>
             </HomeContainer>
 

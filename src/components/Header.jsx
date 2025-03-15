@@ -179,18 +179,20 @@ const Header = () => {
           onMouseLeave={() => setIsDropdownOpen(false)}
           style={{ position: "relative" }}
         >
-          <StyledLink to="/cursos">Cursos ▾</StyledLink>
+          <StyledLink to="/cursos" active={location.pathname === "/cursos"}>Cursos ▾</StyledLink>
           <Dropdown isOpen={isDropdownOpen}>
             <CourseItem to="/extensivo">Extensivo R1</CourseItem>
             <CourseItem to="/intensivo">Intensivo</CourseItem>
             <CourseItem to="/revisao">Revisão</CourseItem>
             <CourseItem to="/extras">Extras e personalizados</CourseItem>
           </Dropdown>
-        </div>        <StyledLink to="/blog" onClick={() => setIsOpen(false)}>Blog</StyledLink>
-        <StyledLink to="/professores" onClick={() => setIsOpen(false)}>Professores</StyledLink>
+        </div>        <StyledLink to="/blog" active={location.pathname === "/blog"} onClick={() => setIsOpen(false)}>Blog</StyledLink>
+        <StyledLink to="/professores" active={location.pathname === "/professores"} onClick={() => setIsOpen(false)}>Professores</StyledLink>
         <StyledLink to="/fale-conosco" active={location.pathname === "/fale-conosco"}>Fale Conosco</StyledLink>
       </Nav>
-      <LoginButton className="buttonBorder"><FaUser /> Login</LoginButton>
+      <LoginButton className="buttonBorder" onClick={() => window.location.href = 'https://medtask.com.br/'}>
+        <FaUser /> Login
+      </LoginButton>
 
       {/* Botão do menu mobile */}
       <MobileMenuButton onClick={() => setIsOpen(true)}>
@@ -222,7 +224,7 @@ const Header = () => {
             </MobileDropdown>            <StyledLink to="/blog" onClick={() => setIsOpen(false)}>Blog</StyledLink>
             <StyledLink to="/professores" onClick={() => setIsOpen(false)}>Professores</StyledLink>
             <StyledLink to="/fale-conosco" onClick={() => setIsOpen(false)}>Fale Conosco</StyledLink>
-            <button className="buttonBorder" onClick={() => setIsOpen(false)}>
+            <button className="buttonBorder" onClick={() => window.location.href = 'https://medtask.com.br/'}>
               <FaUser /> Login
             </button>
           </MobileMenu>
