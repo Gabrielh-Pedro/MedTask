@@ -225,7 +225,7 @@ const CardsContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 30px auto;
 
   button {
