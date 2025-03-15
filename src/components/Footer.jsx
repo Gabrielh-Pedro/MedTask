@@ -136,6 +136,7 @@ const Footer = () => {
           <Link to="/about">Quem Somos</Link>
           <Link to="/cursos">Cursos</Link>
           <Link to="/blog">Blog</Link>
+          <Link to="/professores">Professores</Link>
           <Link to="/fale-conosco">Fale Conosco</Link>
         </nav>
         <p>© {new Date().getFullYear()} MedTask. Todos os direitos reservados. | Desenvolvido e implantado por GrowUx</p>

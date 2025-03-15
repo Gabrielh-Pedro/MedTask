@@ -4,73 +4,81 @@ import { FaAlignRight, FaBook, FaBrain, FaChargingStation, FaChevronDown, FaGrip
 import { scroller } from "react-scroll";
 import Cursos from "../components/Cursos";
 
+
+const floating = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+`;
+
+
 const HomeContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  flex-direction: column;
-  height: auto;
+  height: 100vh;
+  padding: 100px 150px 0px 150px;
   background-image: url("/backcursos.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: white;
-  overflow: hidden;
-`;
-
-const Cont = styled.div`
-  display: flex;
   @media (max-width: 768px) {
+    height: auto;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`;
+    padding: 100px 20px 0px 20px;
+ }
+ ;`
 
 const LeftCont1 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
   width: 50%;
-  margin-top: 100px;
+  height: 100%;
   gap: 20px;
   align-items: flex-start;
-  padding: 80px 100px;
 
   @media (max-width: 768px) {
     width: 100%;
     align-items: center;
+    align-items: center;
     text-align: center;
-    margin-top: 50px;
     gap: 20px;
-    padding: 80px 20px;
+    padding: 0px 20px;
 
     h1 {
       font-size: 40px;
+      line-height: 40px;
     }
-  }
+ }
 
 `;
 
 const RightCont1 = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   width: 50%;
-  margin-top: 100px;
-  gap: 20px;
-  padding: 80px 0px 0px 0px;
-
+  height: 100%;
+  
   @media (max-width: 768px) {
     width: 100%;
-    align-items: center;
-    text-align: center;
-    padding: 0px 0px 0px 0px;
-    margin-top: 0px;
-    gap: 0px;
+    height: auto;
   }
 
+`;
+
+const ImageStyled = styled.img`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    position: relative;
+    padding-top: 20px;
+    width: 100%;
+  }
 `;
 
 const LeftCont = styled.div`
@@ -111,11 +119,6 @@ const RightCont = styled.div`
     gap: 0px;
   }
 
-`;
-
-const ImageStyled = styled.img`
-  height: 100%;
-  object-fit: cover;
 `;
 
 const ImageStyled2 = styled.img`
@@ -408,6 +411,97 @@ const Styler = styled.div`
   margin-left: 90px;
 `;
 
+const Section = styled.section`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 0px 150px;
+  height: 100vh;
+  z-index: 1;
+  border-radius: 100px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.5);
+  background: radial-gradient(circle, rgba(0,30,91,0.8) 0%, rgba(0,30,91,0.6) 50%, rgba(0,30,91,0.3) 100%);
+  backdrop-filter: blur(20px);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 0px 0px 0px 0px;
+    gap: 0px;
+
+    h1, .gradient-textCut {
+      font-size: 40px;
+      line-height: 40px;
+    }
+  }
+`;
+
+const RightSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+
+  p, button {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px 0px 20px;
+  }
+`;
+
+const LeftSection = styled.div`
+  width: 50%;
+
+  h2 {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  p, button {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 0px 20px 0px 20px;
+    margin-top: 50px;
+    gap: 0px;
+  }
+`;
+
+const ContainerScroll = styled.div`
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+const ImageSections = styled.img`
+  width: 90%;
+  animation: ${floating} 2s ease-in-out infinite;
+  @media (max-width: 768px) {
+    width: 50%;
+  }
+`;
+
+
 const CursoSection = () => {
 
   const handleScroll = () => {
@@ -421,104 +515,66 @@ const CursoSection = () => {
   return (
     <>
       <HomeContainer>
-        <Cont>
-          <LeftCont1>
-            <h1>
-              Cada fase da sua preparação exige uma determinada <span className="gradient-text">estratégia específica</span>
-            </h1>
-            <h2>
-              Não importa se você está começando agora ou já está na reta final: temos o curso certo para o seu momento.
-            </h2>
-            <p>Estudar para as provas de residência médica não é um processo linear.Existem momentos em que é preciso construir uma base firme. Outros, em que o foco deve estar na revisão e no treinamento intensivo.
-
-              <br /><br /><span style={{ fontWeight: 'bold' }}>Na MedTask, cada curso foi pensado para atender essas diferentes necessidades.</span> Aqui, você encontra o método certo para o seu momento atual – com um planejamento claro, inteligente e personalizado.</p>
-            <button className="superButton">ENCONTRE SEU CURSO AGORA!</button>
-          </LeftCont1>
-          <RightCont1>
-            <ImageStyled src="andre.webp" alt="Marcus" />
-          </RightCont1>
-        </Cont>
-        <Slider>
-          Aprovação não é questão de sorte. É estratégia.
-          <ScrollButton onClick={handleScroll}>
-            <Icon><FaChevronDown size={32} /></Icon>
-          </ScrollButton>
-        </Slider>
+        <LeftCont1>
+          <h1>
+            Cada fase da sua preparação exige uma determinada <span className="gradient-text">estratégia específica</span>
+          </h1>
+          <h2>
+            Não importa se você está começando agora ou já está na reta final: temos o curso certo para o seu momento.
+          </h2>
+          <button className="superButton">ENCONTRE SEU CURSO AGORA!</button>
+        </LeftCont1>
+        <RightCont1>
+          <ImageStyled src="andre.webp" alt="Marcus" />
+        </RightCont1>
       </HomeContainer>
-      <Container name='next-section'>
-        <Cont>
-          <LeftCont>
-            <h1>Curso Extensivo <br /> <span className="gradient-text">MedTask R1</span></h1>
-            <p><span style={{ fontWeight: 'bold' }}>O Extensivo R1 é o <span className="gradient-text">curso mais completo</span> para quem deseja uma preparação de longo prazo, com foco e consistência.</span> <br /><br />Este curso é indicado para quem entende que a aprovação começa com uma base sólida. Aqui, você não apenas aprende o conteúdo exigido pelas provas, mas desenvolve um raciocínio clínico afiado, com o suporte de professores experientes e tecnologia de ponta.</p>
-            <DestaquesContainer>
-              <Titulo>Destaques do Extensivo R1:</Titulo>
-              <DestaqueItem>Planejamento semanal ajustado pela IA conforme seu desempenho.</DestaqueItem>
-              <DestaqueItem>Revisão Espaçada aplicada para reforçar os conteúdos mais cobrados.</DestaqueItem>
-              <DestaqueItem>Banco de questões comentadas e atualizadas continuamente.</DestaqueItem>
-              <DestaqueItem>Simulados periódicos que simulam o ambiente real da prova.</DestaqueItem>
-            </DestaquesContainer>
+      <Slider>
+        Aprovação não é questão de sorte. É estratégia.
+        <ScrollButton onClick={handleScroll}>
+          <Icon><FaChevronDown size={32} /></Icon>
+        </ScrollButton>
+      </Slider>
+      <Container name = "next-section">
+        <h1 style={{marginBottom: '60px'}}>
+          Cursos direcionados para a sua evolução e <span className="gradient-textCut">real necessidade:</span>
+        </h1>
+      </Container>
+      <ContainerScroll>
+        <Section>
+          <LeftSection>
+            <h1>Curso Extensivo <span className="gradient-textCut">MedTask R1</span></h1>
+            <h2>O Extensivo R1 é o curso mais completo para quem deseja uma preparação de longo prazo, com foco e consistência.</h2>
+            <p>Este curso é indicado para quem entende que a aprovação começa com uma base sólida. Aqui, você não apenas aprende o conteúdo exigido pelas provas, mas desenvolve um raciocínio clínico afiado, com o suporte de professores experientes e tecnologia de ponta.</p>
             <button className="superButton">QUERO CONHECER O EXTENSIVO R1!</button>
-          </LeftCont>
-          <RightCont>
-            <ImageStyled2 src="superimg.png" alt="Marcus" />
-          </RightCont>
-        </Cont>
-      </Container>
-      <Container $primary>
-        <Cont>
-          <LeftCont>
-            <h1>Curso de Revisão <br /> <span className="gradient-text">"Premonições"</span></h1>
-            <p><span style={{ fontWeight: 'bold' }}>A reta final da sua preparação precisa de <span className="gradient-text">foco cirúrgico.</span></span> <br /><br />Na fase final da preparação, o tempo é um recurso precioso. Por isso, o curso Premonições concentra os esforços nos temas historicamente mais cobrados, aplicando técnicas que reforçam o conteúdo com agilidade e eficiência.</p>
-            <DestaquesContainer>
-              <Titulo>Destaques da Revisão Premonição:</Titulo>
-              <DestaqueItem>Análise das últimas edições das principais provas de residência médica.</DestaqueItem>
-              <DestaqueItem>Revisões intensivas com professores especializados em cada tema.</DestaqueItem>
-              <DestaqueItem>Simulados com questões inéditas, focadas nos conteúdos com maior chance de cobrança.</DestaqueItem>
-              <DestaqueItem>Flashcards inteligentes para otimizar a memorização de conceitos críticos.</DestaqueItem>
-            </DestaquesContainer>
-            <button className="superButton">QUERO SABER MAIS SOBRE O CURSO DE REVISÃO!</button>
-          </LeftCont>
-          <RightCont>
-            <ImageStyled2 src="superimg.png" alt="Marcus" />
-          </RightCont>
-        </Cont>
-      </Container>
-      <Container>
-        <Cont>
-          <LeftCont>
-            <h1>Recursos Extras e <br /> <span className="gradient-text">Personalizados</span></h1>
-            <p><span style={{ fontWeight: 'bold' }}>Ferramentas inteligentes para <span className="gradient-text">potencializar o seu estudo.</span></span> <br /><br />Além dos cursos completos, você tem acesso a recursos exclusivos que tornam sua preparação ainda mais eficiente.</p>
-            <NumberContainer>
-              <OneCont>
-                <Number>1</Number>
-                <Styler>
-                  <h2 className="gradient-text">Banco de questões comentadas</h2>
-                  <p>Milhares de questões atualizadas com comentários didáticos, baseados nas diretrizes médicas mais recentes.</p>
-                </Styler>
-              </OneCont>
-              <OneCont>
-                <Number>2</Number>
-                <Styler>
-                  <h2 className="gradient-text">Flashcards inteligentes</h2>
-                  <p>Recurso que aplica o método de Revisão Espaçada para fixação de conteúdos importantes de forma simples e prática.</p>
-                </Styler>
-              </OneCont>
-              <OneCont>
-                <Number>3</Number>
-                <Styler>
-                  <h2 className="gradient-text">Simulados adaptativos</h2>
-                  <p>Simulados que se ajustam ao seu desempenho, simulando a pressão e a dinâmica das provas reais.</p>
-                </Styler>
-              </OneCont>
-            </NumberContainer>
-            <button className="superButton">QUERO CONHECER O EXTENSIVO R1!</button>
-          </LeftCont>
-          <RightCont>
-            <ImageStyled2 src="superimg.png" alt="Marcus" />
-          </RightCont>
-        </Cont>
-      </Container>
-      <Cursos/>
+          </LeftSection>
+          <RightSection>
+            <ImageSections src="superimg.png" alt="Marcus" />
+          </RightSection>
+        </Section>
+        <Section>
+          <LeftSection>
+            <h1>Curso de Revisão <span className="gradient-textCut">"Premonições"</span></h1>
+            <h2>A reta final da sua preparação precisa de foco cirúrgico.</h2>
+            <p>Na fase final da preparação, o tempo é um recurso precioso.Por isso, o curso Premonições concentra os esforços nos temas historicamente mais cobrados, aplicando técnicas que reforçam o conteúdo com agilidade e eficiência.</p>
+            <button className="superButton">QUERO CONHECER O CURSO DE REVISÃO!</button>
+          </LeftSection>
+          <RightSection>
+            <ImageSections src="superimg.png" alt="Marcus" />
+          </RightSection>
+        </Section>
+        <Section>
+          <LeftSection>
+            <h1>Recursos <span className="gradient-textCut">Extras e Personalizados</span></h1>
+            <h2>Ferramentas inteligêntes para potenciar mais ainda seu estudo.</h2>
+            <p>Além dos cursos completos, você tem acesso a recursos exclusivos que tornam sua preparação ainda mais eficiente.</p>
+            <button className="superButton">CONHEÇA NOSSOS RECURSOS!</button>
+          </LeftSection>
+          <RightSection>
+            <ImageSections src="superimg.png" alt="Marcus" />
+          </RightSection>
+        </Section>
+      </ContainerScroll>
+      <Cursos />
     </>
   );
 };

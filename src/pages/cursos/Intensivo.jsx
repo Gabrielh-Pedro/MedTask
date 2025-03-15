@@ -1,8 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { FaBook, FaBrain, FaChevronDown, FaIceCream, FaUserTimes } from "react-icons/fa";
+import { FaBook, FaBrain, FaChevronDown, FaIceCream, FaPeopleArrows, FaStar, FaUserTimes } from "react-icons/fa";
 import { scroller } from "react-scroll";
-import HomeSlack from "../components/HomeSlack";
+import Valuetion from "./Valuetion";
+import { Fa1, Fa2, Fa3, FaGroupArrowsRotate, FaTachographDigital } from "react-icons/fa6";
+import { BsFileBarGraphFill } from "react-icons/bs";
+import Valuetion2 from "./Valuetion2";
 
 const floating = keyframes`
   0% { transform: translateY(0); }
@@ -23,14 +26,14 @@ const HomeContainer = styled.div`
   width: 100%;
   height: 100vh;
   padding: 100px 150px 0px 150px;
-  background-image: url("/back1.webp");
+  background-image: url("/all.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: white;
   @media (max-width: 768px) {
     height: auto;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 100px 20px 0px 20px;
  }
 `;
@@ -50,7 +53,7 @@ const LeftCont1 = styled.div`
     align-items: center;
     text-align: center;
     gap: 20px;
-    padding: 0px 20px;
+    padding: 0px 20px 40px 20px;
 
     h1 {
       font-size: 40px;
@@ -63,20 +66,22 @@ const LeftCont1 = styled.div`
 const RightCont1 = styled.div`
   display: flex;
   position: relative;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   height: 100%;
   
   @media (max-width: 768px) {
     width: 100%;
     height: auto;
+    padding: 20px 20px 60px 20px;
   }
 
 `;
 
 const ImageStyled = styled.img`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  width: 90%;
+  height: auto;
 
   @media (max-width: 768px) {
     position: relative;
@@ -153,17 +158,21 @@ const Icon = styled.div`
   height: 60px;
   margin-top: 10px;
 `;
-
-const Container = styled.div`
+const Container2 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 80px 100px;
-  background-color: #000F2D;
+  padding: 80px 150px;
+  background-color: #101010;
 
   h1 {
     width: 100%;
+  }
+
+  h2 {
+    line-height: 32px;
+    margin-top: 20px;
   }
 
   p {
@@ -175,6 +184,37 @@ const Container = styled.div`
     align-items: center;
     text-align: center;
     padding: 80px 0px 0px 0px;
+    margin-top: 0px;
+    gap: 0px;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 150px;
+  background-color: #000F2D;
+
+  h1 {
+    width: 100%;
+  }
+
+  h2 {
+    line-height: 32px;
+    margin-top: 20px;
+  }
+
+  p {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 80px 10px 0px 10px;
     margin-top: 0px;
     gap: 0px;
   }
@@ -210,7 +250,7 @@ const CardsContainer = styled.div`
 const Card = styled.div`
   cursor: pointer;
   width: 350px;
-  height: 450px;
+  height: 300px;
   padding: 20px 60px;
   text-align: left;
   align-items: left;
@@ -251,6 +291,66 @@ const CardTitle = styled.h2`
 `;
 
 const IconTemplate = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  color: #6C96F7;
+  font-size: 25px;
+  margin-bottom: 10px;
+  border-radius: 100%;
+  background: linear-gradient(
+    90deg,
+    #1d68ffe5,
+    #000f2db2
+  );
+`;
+
+const Card2 = styled.div`
+  cursor: pointer;
+  width: 300px;
+  height: 300px;
+  padding: 20px 60px;
+  text-align: left;
+  align-items: left;
+  background: linear-gradient(
+    315deg,
+    rgba(18, 18, 18, 0.9),
+    rgba(40, 40, 40, 0.7),
+    rgba(58, 58, 58, 0.5),
+    rgba(77, 77, 77, 0.3)
+  );
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  background-size: 300% 300%;
+  animation: ${animateBackground} 6s infinite linear;
+  transition: all 0.3s ease-out;
+
+  p {
+    font-weight: 300;
+  }
+  
+  &:hover {
+    animation: none; /* Para quando o mouse estiver sobre o card */
+    transform: scale(1.02);
+  }
+`;
+
+const CardTitle2 = styled.h2`
+  font-size: 25px;
+  font-weight: 600;
+`;
+
+const IconTemplate2 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -340,7 +440,7 @@ const LeftSection = styled.div`
   }
 `;
 
-const Home = () => {
+const Intensivo = () => {
   const [bgPosition, setBgPosition] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
 
@@ -365,16 +465,15 @@ const Home = () => {
       <HomeContainer>
         <LeftCont1>
           <h1>
-            Milhares de médicos disputam as mesmas vagas de Residência.
-            <span className="gradient-text">O que vai te diferenciar?</span>
+            Preparação rápida e focada para a<span className="gradient-text"> residência médica.</span>
           </h1>
           <h2>
-            Aprovação não é questão de sorte. É estratégia. Com o nosso método que mais aprova, sua preparação se torna clara, eficiente e direcionada.
+            O Intensivo MedTask é a solução perfeita para quem precisa revisar de forma eficiente e objetiva na reta final.
           </h2>
-          <button className="superButton">COMECE SUA PREPARAÇÃO AGORA!</button>
+          <button className="superButton">QUERO DESCOBRIR MAIS!</button>
         </LeftCont1>
         <RightCont1>
-          <ImageStyled src="marcushome.png" alt="Marcus" />
+          <ImageStyled src="intensivo.png" alt="Marcus" />
         </RightCont1>
       </HomeContainer>
 
@@ -387,7 +486,9 @@ const Home = () => {
 
       <Container name="next-section">
         <h1>
-          Estudar sem estratégia é como <span className="gradient-textCut">navegar sem bússola.</span>
+          Como <span className="gradient-textCut"> funciona?</span>
+          <h2>
+          O curso concentra-se nos tópicos mais relevantes, com um cronograma estratégico e avaliações contínuas para garantir assertividade no aprendizado.          </h2>
         </h1>
         <CardsContainer>
           <Card
@@ -399,10 +500,9 @@ const Home = () => {
             onMouseLeave={() => setIsHovered(false)}
           >
             <IconTemplate>
-              <FaBrain />
+              <Fa1 />
             </IconTemplate>
-            <CardTitle>Memória que falha na hora da prova</CardTitle>
-            <p>Estudar sem revisar de forma adequada dificulta a retenção. Nosso método aplica a Revisão Espaçada, comprovada pela neurociência, para que você chegue ao dia da prova com confiança.</p>
+            <CardTitle>Diagnóstico inicial para identificar os principais desafios.</CardTitle>
           </Card>
           <Card
             style={{
@@ -413,10 +513,9 @@ const Home = () => {
             onMouseLeave={() => setIsHovered(false)}
           >
             <IconTemplate>
-              <FaBook />
+              <Fa2 />
             </IconTemplate>
-            <CardTitle>Estudo sem direção clara</CardTitle>
-            <p>Com tantas apostilas, vídeos e simulados, é fácil se perder. Nossa IA ajusta seu cronograma automaticamente, garantindo foco no que realmente importa.</p>
+            <CardTitle>Aulas direcionadas com revisões inteligentes.</CardTitle>
           </Card>
           <Card
             style={{
@@ -427,64 +526,78 @@ const Home = () => {
             onMouseLeave={() => setIsHovered(false)}
           >
             <IconTemplate>
-              <FaUserTimes />
+              <Fa3 />
             </IconTemplate>
-            <CardTitle>Dificuldade em conciliar estudo e rotina</CardTitle>
-            <p>Estudar, trabalhar e manter a vida pessoal exige organização. Por isso, desenvolvemos uma plataforma simples e intuitiva, que facilita seu dia a dia e otimiza o tempo.</p>
+            <CardTitle>Simulados intensivos com questões no padrão oficial.</CardTitle>
           </Card>
-          <button className="superButton">DESCUBRA COMO O MÉTODO MEDTASK PODE TE AJUDAR!</button>
+          <button className="superButton">QUERO CONHECER O EXTENSIVO R1!</button>
         </CardsContainer>
       </Container>
-      <Container>
-        <h1 style={{marginBottom: '60px'}}>
-          Conheça os pilares que tornam a MedTask referência em <span className="gradient-textCut">preparação médica:</span>
+
+      <Container2>
+        <h1>
+          O que você encontra no <span className="gradient-textCut"> Intensivo MedTask?</span>
         </h1>
-      </Container>
-      <ContainerScroll>
-        <Section>
-          <LeftSection>
-            <h1>Inteligência Artificial <span className="gradient-textCut">Personalizada</span></h1>
-            <p>A IA analisa seu desempenho e ajusta automaticamente o plano de estudos para otimizar sua preparação.</p>
-            <button className="superButton">QUERO UMA PREPARAÇÃO INTELIGENTE!</button>
-          </LeftSection>
-          <RightSection>
-            <ImageSections src="newimg.png" alt="Marcus" />
-          </RightSection>
-        </Section>
-        <Section>
-          <LeftSection>
-            <h1>Método <span className="gradient-textCut"> Neurocientífico</span></h1>
-            <p>Aplicamos técnicas comprovadas, como Revisão Espaçada e Prática Ativa, para garantir maior retenção de conteúdo.</p>
-            <button className="superButton">QUERO UMA PREPARAÇÃO INTELIGENTE!</button>
-          </LeftSection>
-          <RightSection>
-            <ImageSections src="2.png" alt="Marcus" />
-          </RightSection>
-        </Section>
-        <Section>
-          <LeftSection>
-            <h1>Banco de <span className="gradient-textCut"> Questões Comentadas</span></h1>
-            <p>Não basta resolver questões, é preciso entender o raciocínio. Nosso banco inclui +45 mil questões com comentários didáticos.</p>
-            <button className="superButton">QUERO UMA PREPARAÇÃO INTELIGENTE!</button>
-          </LeftSection>
-          <RightSection>
-            <ImageSections src="3.png" alt="Marcus" />
-          </RightSection>
-        </Section>
-        <Section>
-          <LeftSection>
-            <h1>Mentoria <span className="gradient-textCut"> Individualizada</span></h1>
-            <p>Orientação prática e suporte emocional com profissionais experientes, que já enfrentaram as mesmas provas que você.</p>
-            <button className="superButton">QUERO UMA PREPARAÇÃO INTELIGENTE!</button>
-          </LeftSection>
-          <RightSection>
-            <ImageSections src="4.png" alt="Marcus" />
-          </RightSection>
-        </Section>
-      </ContainerScroll>
-      <HomeSlack />
+        <CardsContainer>
+          <Card2
+            style={{
+              backgroundPosition: isHovered ? `${bgPosition.x}% ${bgPosition.y}%` : "center",
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <IconTemplate>
+              <FaStar />
+            </IconTemplate>
+            <CardTitle>Aulas diretas com revisão rápida.</CardTitle>
+          </Card2>
+          <Card2
+            style={{
+              backgroundPosition: isHovered ? `${bgPosition.x}% ${bgPosition.y}%` : "center",
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <IconTemplate>
+              <BsFileBarGraphFill />
+            </IconTemplate>
+            <CardTitle>Simulados focados na reta final.</CardTitle>
+          </Card2>
+          <Card2
+            style={{
+              backgroundPosition: isHovered ? `${bgPosition.x}% ${bgPosition.y}%` : "center",
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <IconTemplate>
+              <FaGroupArrowsRotate />
+            </IconTemplate>
+            <CardTitle>Método comprovado com alta taxa de aprovação.</CardTitle>
+          </Card2>
+          <Card2
+            style={{
+              backgroundPosition: isHovered ? `${bgPosition.x}% ${bgPosition.y}%` : "center",
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <IconTemplate>
+              <FaPeopleArrows />
+            </IconTemplate>
+            <CardTitle>Feedback Individualizado</CardTitle>
+          </Card2>
+          <button className="superButton">QUERO SABER MAIS!</button>
+        </CardsContainer>
+      </Container2>
+
+      <Valuetion2 />
     </>
   );
 };
 
-export default Home;
+export default Intensivo;

@@ -8,6 +8,13 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import CursoSection from "./pages/CursoSection";
 import FaleConosco from "./pages/FaleConosco";
+import Professores from "./pages/Professores";
+import Extensivo from "./pages/cursos/Extensivo";
+import Intensivo from "./pages/cursos/Intensivo";
+import Premonicao from "./pages/cursos/Premonicao";
+import Extras from "./pages/cursos/Extras";
+import Blog from "./pages/Blog";
+
 
 // Estilos globais
 const GlobalStyle = createGlobalStyle`
@@ -30,7 +37,14 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cursos" element={<CursoSection />} /> 
+            <Route path="/professores" element={<Professores />} /> 
             <Route path="/fale-conosco" element={<FaleConosco />} /> 
+            <Route path="/extensivo" element={<Extensivo />} /> 
+            <Route path="/intensivo" element={<Intensivo />} /> 
+            <Route path="/revisao" element={<Premonicao />} /> 
+            <Route path="/extras" element={<Extras />} /> 
+            <Route path="/blog" element={<Blog />} /> 
+
           </Routes>
           <Footer/>
     </Router>

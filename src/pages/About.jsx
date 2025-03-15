@@ -3,12 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { FaAlignRight, FaBook, FaBrain, FaChargingStation, FaChevronDown, FaGripLinesVertical, FaHandMiddleFinger, FaIceCream, FaLine, FaPencilAlt, FaPersonBooth, FaSuperpowers, FaUser, FaUserTimes } from "react-icons/fa";
 import { scroller } from "react-scroll";
 
-const floating = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-`;
-
 const animateBackground = keyframes`
   0% { background-position: 0% 0%; }
   50% { background-position: 100% 100%; }
@@ -27,6 +21,11 @@ const HomeContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   color: white;
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    padding: 100px 20px 0px 20px;
+ }
 `;
 
 const LeftCont1 = styled.div`
@@ -41,32 +40,42 @@ const LeftCont1 = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     align-items: center;
+    align-items: center;
     text-align: center;
-    margin-top: 50px;
     gap: 20px;
-    padding: 80px 20px;
+    padding: 0px 20px;
 
     h1 {
       font-size: 40px;
+      line-height: 40px;
     }
  }
 
 `;
 
 const RightCont1 = styled.div`
+  display: flex;
   position: relative;
   width: 50%;
   height: 100%;
   
   @media (max-width: 768px) {
     width: 100%;
-    align-items: center;
-    text-align: center;
-    padding: 0px 0px 0px 0px;
-    margin-top: 0px;
-    gap: 0px;
+    height: auto;
   }
 
+`;
+
+const ImageStyled = styled.img`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    position: relative;
+    padding-top: 20px;
+    width: 100%;
+  }
 `;
 
 const LeftCont = styled.div`
@@ -110,15 +119,7 @@ const RightCont = styled.div`
 
 `;
 
-const ImageStyled = styled.img`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-`;
-
 const ImageStyled2 = styled.img`
-  position: absolute;
-  bottom: 0;
   width: 100%;
 `;
 
@@ -195,7 +196,7 @@ const Container5 = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 50px 150px;
+  padding: 0px 150px;
   background-color: #000F2D;
 
   h1 {
@@ -210,7 +211,8 @@ const Container5 = styled.div`
     width: 100%;
     align-items: center;
     text-align: center;
-    padding: 80px 0px 0px 0px;
+    flex-direction: column;
+    padding: 40px 0px 0px 0px;
     margin-top: 0px;
     gap: 0px;
 
@@ -242,13 +244,13 @@ const Container = styled.div`
     width: 100%;
     align-items: center;
     text-align: center;
-    padding: 80px 0px 0px 0px;
+    padding: 40px 20px 0px 20px;
     margin-top: 0px;
     gap: 0px;
 
     h1, .gradient-textCut {
       font-size: 40px;
-      line-height: 40px;
+      line-height: 45px;
     }
 
   }
@@ -561,7 +563,7 @@ const About = () => {
           <button className="superButton">CONHEÇA NOSSO MÉTODO!</button>
         </LeftCont1>
         <RightCont1>
-          <ImageStyled src="Marcus2.webp" alt="Marcus" />
+          <ImageStyled src="beatriz.png" alt="Marcus" />
         </RightCont1>
       </HomeContainer>
 
@@ -573,6 +575,50 @@ const About = () => {
       </Slider>
 
       <Container name="next-section">
+        <TopArea>
+          <LeftInfo>
+            <h1>
+              Aprenda com quem já <span className="gradient-textCut">chegou onde você quer chegar!</span>
+            </h1>
+            <p>Nossa equipe é formada por médicos experientes, que conhecem os desafios das provas de residência médica</p>
+          </LeftInfo>
+          <RightInfo>
+            <Vetor src="vetor.png" alt="Marcus" />
+          </RightInfo>
+        </TopArea>
+        <MedCardContainer>
+          <MedCard $primary>
+            <List>
+              <Title>
+                <FaGripLinesVertical />
+                <NameTitle>Dra. Karin Chiaradia</NameTitle>
+              </Title>
+              <p>Médica assistente da USP e especialista em oftalmologia. Sua paixão pelo ensino e abordagem didática fazem dela uma referência para os estudantes.</p>
+            </List>
+          </MedCard>
+          <MedCard $secondary>
+            <List2>
+              <Title>
+                <FaGripLinesVertical />
+                <NameTitle>Dr. Marcus Vinicius Takatsu</NameTitle>
+              </Title>
+              <p>Chefe do Pronto-Socorro da Santa Casa de São Paulo, reconhecido pela experiência prática e orientações aplicadas ao dia a dia médico.</p>
+            </List2>
+          </MedCard>
+          <MedCard $triple>
+            <List>
+              <Title>
+                <FaGripLinesVertical />
+                <NameTitle>Dra. André Moraes</NameTitle>
+              </Title>
+              <p>Chefe do Pronto-Socorro da Santa Casa de São Paulo, reconhecido pela experiência prática e orientações aplicadas ao dia a dia médico.</p>
+            </List>
+          </MedCard>
+          <button className="superButton">CONHEÇA TODOS OS PROFESSORES</button>
+        </MedCardContainer>
+      </Container>
+
+      <Container>
         <h1>
           Acreditamos na <br /><span className="gradient-textCut">medicina feita com dedicação.</span><br /> E na preparação feita com inteligência
         </h1>
@@ -623,49 +669,6 @@ const About = () => {
             <p>Sabemos que a preparação não é só técnica. Nossos mentores oferecem apoio psicológico e estratégico para que você chegue confiante no dia da prova.</p>
           </Card>
         </CardsContainer>
-      </Container>
-      <Container>
-        <TopArea>
-          <LeftInfo>
-            <h1>
-              Aprenda com quem já <span className="gradient-textCut">chegou onde você quer chegar!</span>
-            </h1>
-            <p>Nossa equipe é formada por médicos experientes, que conhecem os desafios das provas de residência médica</p>
-          </LeftInfo>
-          <RightInfo>
-            <Vetor src="vetor.png" alt="Marcus" />
-          </RightInfo>
-        </TopArea>
-        <MedCardContainer>
-          <MedCard $primary>
-            <List>
-              <Title>
-                <FaGripLinesVertical />
-                <NameTitle>Dra. Karin Chiaradia</NameTitle>
-              </Title>
-              <p>Médica assistente da USP e especialista em oftalmologia. Sua paixão pelo ensino e abordagem didática fazem dela uma referência para os estudantes.</p>
-            </List>
-          </MedCard>
-          <MedCard $secondary>
-            <List2>
-              <Title>
-                <FaGripLinesVertical />
-                <NameTitle>Dr. Marcus Vinicius Takatsu</NameTitle>
-              </Title>
-              <p>Chefe do Pronto-Socorro da Santa Casa de São Paulo, reconhecido pela experiência prática e orientações aplicadas ao dia a dia médico.</p>
-            </List2>
-          </MedCard>
-          <MedCard $triple>
-            <List>
-              <Title>
-                <FaGripLinesVertical />
-                <NameTitle>Dra. André Moraes</NameTitle>
-              </Title>
-              <p>Chefe do Pronto-Socorro da Santa Casa de São Paulo, reconhecido pela experiência prática e orientações aplicadas ao dia a dia médico.</p>
-            </List>
-          </MedCard>
-          <button className="superButton">CONHEÇA TODOS OS PROFESSORES</button>
-        </MedCardContainer>
       </Container>
       <Container5>
           <LeftCont>

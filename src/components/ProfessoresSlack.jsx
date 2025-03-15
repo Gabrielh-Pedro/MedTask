@@ -60,7 +60,7 @@ const ImageStyled = styled.img`
   }
 `;
 
-const Contact = () => {
+const ProfessoresSlack = () => {
 
   return (
 
@@ -68,12 +68,11 @@ const Contact = () => {
       <ImageStyled src="persons.webp" alt="Marcus" />
       <LeftCont1>
         <h1>
-          Voçê já tem o conhecimento.
-          <br />
-          <span className="gradient-text"> Falta o método certo!</span>
+          Preparado(a) para o<br />
+<span className="gradient-text"> próximo passo?</span>
         </h1>
         <p>
-        Chega de estudar no escuro. Conte com a inteligência da MedTask e transforme sua dedicação em resultados.
+        Converse com nossa equipe e descubra como a MedTask pode te levar até a aprovação.
         </p>
         <button className="superButton">FALAR COM UM ESPECIALISTA AGORA!</button>
       </LeftCont1>
@@ -81,4 +80,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ProfessoresSlack;

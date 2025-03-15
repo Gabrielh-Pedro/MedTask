@@ -60,7 +60,7 @@ const ImageStyled = styled.img`
   }
 `;
 
-const Contact = () => {
+const Valuetion4 = () => {
 
   return (
 
@@ -68,17 +68,18 @@ const Contact = () => {
       <ImageStyled src="persons.webp" alt="Marcus" />
       <LeftCont1>
         <h1>
-          Voçê já tem o conhecimento.
+          Investimento:
           <br />
-          <span className="gradient-text"> Falta o método certo!</span>
+          <span className="cupper"> DE R$297,00</span>
         </h1>
+        <span className="upper">INCLUSO NOS CURSOS</span>
         <p>
-        Chega de estudar no escuro. Conte com a inteligência da MedTask e transforme sua dedicação em resultados.
+        Pix, Boleto ou Cartão em até 12x
         </p>
-        <button className="superButton">FALAR COM UM ESPECIALISTA AGORA!</button>
+        <button className="superButton">EU QUERO CONHECER O PREMONIÇÕES!</button>
       </LeftCont1>
     </HomeContainer>
   );
 };
 
-export default Contact;
+export default Valuetion4;
