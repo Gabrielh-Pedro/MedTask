@@ -14,6 +14,7 @@ import Intensivo from "./pages/cursos/Intensivo";
 import Premonicao from "./pages/cursos/Premonicao";
 import Extras from "./pages/cursos/Extras";
 import Blog from "./pages/Blog";
+import Politica from "./components/Politica";
 
 
 // Estilos globais
@@ -44,7 +45,8 @@ const App = () => {
             <Route path="/revisao" element={<Premonicao />} /> 
             <Route path="/extras" element={<Extras />} /> 
             <Route path="/blog" element={<Blog />} /> 
-
+            <Route path="/politica-de-privacidade" element={<Politica />} /> 
+            <Route path="/lgpd" element={<Politica />} /> 
           </Routes>
           <Footer/>
     </Router>

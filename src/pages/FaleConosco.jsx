@@ -6,19 +6,6 @@ import ContactForm from "../components/ContactForm";
 import FAQ from "../components/FAQ";
 import Contact from "../components/Contact";
 
-const HomeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  flex-direction: column;
-  height: auto;
-  background-image: url("/backquem.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-`;
-
 const Cont = styled.div`
   display: flex;
   @media (max-width: 768px) {
@@ -28,49 +15,73 @@ const Cont = styled.div`
   }
 `;
 
+const HomeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 100px 150px 0px 150px;
+  background-image: url("/back1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    padding: 100px 20px 0px 20px;
+ }
+`;
+
 const LeftCont1 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
   width: 50%;
-  margin-top: 100px;
+  height: 100%;
   gap: 20px;
   align-items: flex-start;
-  padding: 80px 100px;
 
   @media (max-width: 768px) {
     width: 100%;
     align-items: center;
+    align-items: center;
     text-align: center;
-    margin-top: 50px;
     gap: 20px;
-    padding: 80px 20px;
+    padding: 0px 20px;
 
     h1 {
       font-size: 40px;
+      line-height: 40px;
     }
-  }
+ }
 
 `;
 
 const RightCont1 = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   width: 50%;
-  margin-top: 100px;
-  gap: 20px;
-
+  height: 100%;
+  
   @media (max-width: 768px) {
     width: 100%;
-    align-items: center;
-    text-align: center;
-    padding: 0px 0px 0px 0px;
-    margin-top: 0px;
-    gap: 0px;
+    height: auto;
   }
 
+`;
+
+const ImageStyled = styled.img`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    position: relative;
+    padding-top: 20px;
+    width: 100%;
+  }
 `;
 
 const LeftCont = styled.div`
@@ -134,12 +145,6 @@ const Center = styled.div`
   }
 `;
 
-
-const ImageStyled = styled.img`
-  height: 100%;
-  overflow: hidden;
-  object-fit: cover;
-`;
 
 const ImageStyled2 = styled.img`
   width: 100%;
@@ -211,7 +216,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 100px 100px;
+  padding: 40px 100px;
   background-color: ${(props) => (props.$primary ? '#d9d9d9' : '#000F2D')} ;
 
   h1 {
@@ -256,25 +261,23 @@ const FaleConosco = () => {
   return (
     <>
       <HomeContainer>
-        <Cont>
           <LeftCont1>
             <h1>
-              Entre em contato com nossa equipe e saiba como a <span className="gradient-text">MedTask pode te ajudar a conquistar sua aprovação</span>
+              Entre em contato com nossa equipe <span className="gradient-text"> para alcançar sua aprovação!</span>
             </h1>
             <p>Sabemos que a preparação para a residência médica levanta muitas dúvidas. Seja para entender melhor nossos cursos, saber mais sobre a metodologia ou resolver questões administrativas, estamos prontos para te atender. Nosso time está disponível para te orientar de forma objetiva, direta e sempre com o cuidado que sua trajetória merece.</p>
             <button className="superButton">ENTRE EM CONTATO AGORA!</button>
           </LeftCont1>
           <RightCont1>
-            <ImageStyled src="marcus.webp" alt="Marcus" />
+            <ImageStyled src="fale.png" alt="Marcus" />
           </RightCont1>
-        </Cont>
-        <Slider>
+      </HomeContainer>
+      <Slider>
           Aprovação não é questão de sorte. É estratégia.
           <ScrollButton onClick={handleScroll}>
             <Icon><FaChevronDown size={32} /></Icon>
           </ScrollButton>
         </Slider>
-      </HomeContainer>
       <Container name='next-section'>
         <Cont>
           <LeftCont>
@@ -304,7 +307,7 @@ const FaleConosco = () => {
             <p style={{color: 'black'}}>Escolha a forma mais convêniente para falar conosco.</p>
             <LayerArea>
               <h2 style={{color: 'black'}}><FaWhatsapp style={{marginRight: '10px'}}></FaWhatsapp>Whatsapp</h2>
-              <p style={{color: 'black'}}><span style={{fontWeight: 'bold', color: 'black'}}>(00) 00000-0000</span> - Atendimento rápido e direto com nossa equipe.</p>
+              <p style={{color: 'black'}}><span style={{fontWeight: 'bold', color: 'black'}}>(11) 91429-7094</span> - Atendimento rápido e direto com nossa equipe.</p>
             </LayerArea>
             <LayerArea>
               <h2 style={{color: 'black'}}><FaEnvelope style={{marginRight: '10px'}}/>E-mail</h2>
@@ -313,11 +316,6 @@ const FaleConosco = () => {
             <LayerArea>
               <h2 style={{color: 'black'}}><FaNetworkWired style={{marginRight: '10px'}}/>Redes Sociais</h2>
               <p style={{color: 'black'}}>Acompanhe nossos conteúdos e entre em contato via Instagram, Facebook e YouTube.</p>
-              <div style={{ display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop: '10px', gap: '10px', fontSize: '30px', color: 'black'}}>
-                <FaInstagram/>
-                <FaFacebook/>
-                <FaYoutube/>
-              </div>
             </LayerArea>
           </LeftCont>
           <RightCont>

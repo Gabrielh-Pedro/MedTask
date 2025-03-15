@@ -525,7 +525,7 @@ const CursoSection = () => {
           <button className="superButton">ENCONTRE SEU CURSO AGORA!</button>
         </LeftCont1>
         <RightCont1>
-          <ImageStyled src="andre.webp" alt="Marcus" />
+          <ImageStyled src="andre.png" alt="Marcus" />
         </RightCont1>
       </HomeContainer>
       <Slider>
